@@ -35,8 +35,9 @@ search.addEventListener('click', () => {
             const image = document.querySelector('.weather-box img');
             const temperature = document.querySelector('.weather-box .temperature');
             const description = document.querySelector('.weather-box .description');
-            const humidity = document.querySelector('.weather-box .humidity span');
-            const wind = document.querySelector('.weather-box .wind span')
+            const humidity = document.querySelector('.weather-details .humidity span'); // Corrected selector
+            const wind = document.querySelector('.weather-details .wind span');       // Corrected selector
+
             if(cityHide.textContent == city){
                 return;
             }
@@ -79,7 +80,8 @@ search.addEventListener('click', () => {
             temperature.innerHTML = `${parseInt(json.main.temp)}<span>°C</span>`;
             description.innerHTML = json.weather[0].description;
             humidity.innerHTML = `${json.main.humidity}%`;
-            wind.innerHTML = `${parseInt(json.wind.speed)}Km/h`;
+wind.innerHTML = `${parseInt(json.wind.speed)}Km/h`;  // Update wind speed
+
             
             const infoWeather = document.querySelector('.info-weather');
             const infoHumidity = document.querySelector('.info-humidity');
@@ -109,7 +111,7 @@ search.addEventListener('click', () => {
             const cloneInfoHumidity = document.querySelectorAll('.info-humidity.active-clone');
             const cloneInfoHumidityFirst = cloneInfoHumidity[0];
 
-            const cloneInfoWind = document.querySelectorAll('.info-Wind.active-clone');
+            const cloneInfoWind = document.querySelectorAll('.info-wind.active-clone');
             const cloneInfoWindFirst = cloneInfoWind[0];
             if (totalCloneInfoWeather > 0){
                 cloneInfoWeatherFirst.classList.remove('active-clone');
